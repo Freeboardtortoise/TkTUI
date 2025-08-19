@@ -1,9 +1,13 @@
 import curses
 import tkurses.core as core
-from tkurses.widgets import Frame, Inputbox, Label
+import tkurses.widgets as widgits
 from tkurses.themes import DarkTheme
 
 def main(stdscr):
     screen = stdscr
-    app = core.app(screen, DarkTheme)
-    app.add_widget(Label(text="Hello world",  0,0))
+    app = core.App(screen, DarkTheme())
+    app.add_widget(widgits.Label("Hello world",  0,0))
+    app.add_widget(widgits.Button("press me", 1,0))
+
+    screen.getch()
+curses.wrapper(main)
