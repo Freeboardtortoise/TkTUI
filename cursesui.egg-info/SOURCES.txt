@@ -5,3 +5,5 @@ cursesui.egg-info/PKG-INFO
 cursesui.egg-info/SOURCES.txt
 cursesui.egg-info/dependency_links.txt
 cursesui.egg-info/top_level.txt
+tests/__init__.py
+tests/test_core.py
