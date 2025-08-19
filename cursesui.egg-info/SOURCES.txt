@@ -1,0 +1,7 @@
+README.md
+pyproject.toml
+setup.py
+cursesui.egg-info/PKG-INFO
+cursesui.egg-info/SOURCES.txt
+cursesui.egg-info/dependency_links.txt
+cursesui.egg-info/top_level.txt
