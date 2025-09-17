@@ -19,9 +19,9 @@ class Button(Widget):
         # start and end theme
         if self.focused:
             startChar = theme["start"]["focused"]
-            endChar = theme["start"]["not-focused"]
+            endChar = theme["end"]["focused"]
         else:
-            startChar = theme["end"]["focused"]
+            startChar = theme["start"]["not-focused"]
             endChar = theme["end"]["not-focused"]
         
         # display
