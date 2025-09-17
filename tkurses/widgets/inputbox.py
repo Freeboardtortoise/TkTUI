@@ -6,14 +6,13 @@ ENTER_KEYS = ['\n', '\r', 10, 13, curses.KEY_ENTER]
 BACKSPACE_KEYS = ['\b', '\x7f', 8, 127, curses.KEY_BACKSPACE]
 
 class InputBox(Widget):
-    def __init__(self, title,pos,size,on_press,theme="default"):
+    def __init__(self, title,pos,size,on_press):
         super().__init__(pos[0],pos[1])
         self.text=""
         self.size = size
         self.title=title
         self.done = False
         self.on_press = on_press
-        sef.theme = theme
     def render(self):
         theme = self.app.theme.get_input_theme()
         color = theme["colors"]

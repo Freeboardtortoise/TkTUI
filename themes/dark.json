@@ -1,7 +1,7 @@
 {
     "colors": {
-        "background": "black",
-        "forground": "white"
+        "background": "blue",
+        "forground": "black"
     },
     "input": {
         "style": "box",
@@ -27,7 +27,7 @@
             "focused": { "background": "black", "forground": "white"},
             "not-focused": {"background": "white","forground": "black"}
         },
-        "start": {"focused":">","not-focused":"["},
-        "end": {"focused": "<","not-focused":"]"}
+        "start": {"focused":"[","not-focused":"<"},
+        "end": {"focused": "]","not-focused":">"}
     }
 }

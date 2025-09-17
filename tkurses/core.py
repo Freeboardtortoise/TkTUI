@@ -6,7 +6,7 @@ from tkurses.themes import ThemeManager
 class App:
     def __init__(self, stdscr, theme=None):
         self.stdscr = stdscr
-        self.theme = ThemeManager(theme)
+        self.theme = ThemeManager(stdscr=stdscr ,themeFile=theme)
         self.widgets: List["Widget"] = []
         self.focus_index = 0
 
@@ -30,6 +30,9 @@ class App:
         if not self.widgets:
             return
         self.focus_index = (self.focus_index + 1) % len(self.widgets)
+        for widget in self.widgets:
+            widget.set_focus(False)
+        self.widgets[self.focus_index].set_focus(True)
         self.refresh()
 
     def refresh(self):
