@@ -13,10 +13,10 @@ def main(stdscr):
     app.add_widget(button1)
     button2 = widgits.Button("press me too", 0, 2, on_press=lambda: on_buttonPress(app, "press Me too button"))
     app.add_widget(button2)
+    input = widgits.InputBox(10,10,20,10)
 
     while True:
         key = screen.getch()
-
 
         if button1.handle_input(key) == False:
             button2.handle_input(key)
