@@ -9,8 +9,11 @@ class Button(Widget):
 
     def render(self):
         theme = self.app.theme.get_button_theme()
-        color = self.app.theme.getColors()["buttons"]
         # start and end theme
+        if self.focused:
+            color = self.app.theme.getColors()["buttons"]["focused"]
+        else:
+            color = self.app.theme.getColors()["buttons"]["not-focused"]
         if self.focused:
             startChar = theme["start"]["focused"]
             endChar = theme["end"]["focused"]

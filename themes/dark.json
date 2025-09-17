@@ -17,15 +17,15 @@
     },
     "text": {
         "colors": {
-            "background": "black",
-            "forground": "white"
+            "background": "blue",
+            "forground": "black"
         },
         "theme": "None"
     },
     "buttons": {
         "colors": {
-            "focused": { "background": "black", "forground": "white"},
-            "not-focused": {"background": "white","forground": "black"}
+            "focused": { "background": "white", "forground": "black"},
+            "not-focused": {"background": "black","forground": "white"}
         },
         "start": {"focused":"[","not-focused":"<"},
         "end": {"focused": "]","not-focused":">"}

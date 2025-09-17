@@ -44,10 +44,12 @@ class ThemeManager:
         self.data = data
         self.data = convert_colors(self.data)
         curses.start_color()
-        curses.init_pair(1, self.data["colors"]["focused"]["forground"], self.data["colors"]["focused"]["background"])
+        curses.init_pair(1, self.data["colors"]["forground"], self.data["colors"]["background"])
         curses.init_pair(2, self.data["input"]["colors"]["focused"]["forground"],self.data["input"]["colors"]["focused"]["background"])
-        curses.init_pair(3, self.data["buttons"]["colors"]["focused"]["forground"],self.data["buttons"]["focused"]["background"])
-        curses.init_pair(4, self.data["text"]["colors"]["focused"]["forground"],self.data["text"]["colors"]["focused"]["background"])
+        curses.init_pair(3, self.data["buttons"]["colors"]["focused"]["forground"],self.data["buttons"]["colors"]["focused"]["background"])
+        curses.init_pair(4, self.data["text"]["colors"]["forground"],self.data["text"]["colors"]["background"])
+        curses.init_pair(5, self.data["input"]["colors"]["not-focused"]["forground"],self.data["input"]["colors"]["not-focused"]["background"])
+        curses.init_pair(6, self.data["buttons"]["colors"]["not-focused"]["forground"],self.data["buttons"]["colors"]["not-focused"]["background"])
         fill_background(stdscr=stdscr,color_pair_number=1)
     def get_input_theme(self):
         return self.data["input"]
@@ -56,4 +58,4 @@ class ThemeManager:
     def get_button_theme(self):
         return self.data["buttons"]
     def getColors(self):
-        return {"inputs":2,"buttons":3,"text":4}
+        return {"inputs":{"focused":2,"not-focused":5},"buttons":{"focused":3 ,"not-focused":6},"text":4}
