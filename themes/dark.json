@@ -1,0 +1,38 @@
+{
+    "colors": {
+        "background": "black",
+        "forground": "white"
+    },
+    "input": {
+        "style": "box",
+        "colors": {
+            "focused": {
+                "background": "black",
+                "forground": "white"
+            }, "not-focused" {
+                "forground": "black",
+                "background": "white"
+            }
+        }
+    },
+    "text": {
+        "colors": {
+            "focused": {
+                "background": "black",
+                "forground": "white"
+            }, "not-focused" : {
+                "background": "white",
+                "forground": "back"
+            }
+        },
+        "theme": "None"
+    },
+    "buttons": {
+        "colors": {
+            "focused": { "background": "black", "forground": "white"},
+            "not-focused": {"background":"white","forground": "black"},
+        }
+        "start": {"focused":">","not-focused":"["},
+        "end": {"focused": "<","not-focused":"]"}
+    }
+}

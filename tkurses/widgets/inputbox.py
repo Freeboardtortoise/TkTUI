@@ -6,14 +6,17 @@ ENTER_KEYS = ['\n', '\r', 10, 13, curses.KEY_ENTER]
 BACKSPACE_KEYS = ['\b', '\x7f', 8, 127, curses.KEY_BACKSPACE]
 
 class InputBox(Widget):
-    def __init__(self, title,x,y,width,height):
-        super().__init__(x,y)
+    def __init__(self, title,pos,size,on_press,theme="default"):
+        super().__init__(pos[0],pos[1])
         self.text=""
-        self.size = [width,height]
+        self.size = size
         self.title=title
         self.done = False
+        self.on_press = on_press
+        sef.theme = theme
     def render(self):
-        self.app.theme.get_color("default")
+        self.app.theme.get_color(self.theme)
+        if self.app.theme.get_inputTheme
         rectangle(self.app.stdscr,self.y,self.x,self.y+self.size[1],self.x+self.size[0])
         self.app.stdscr.addstr(self.y,self.x+2,self.title)
         self.app.stdscr.addstr(self.y+1,self.x+1,self.text)
@@ -24,6 +27,6 @@ class InputBox(Widget):
             if key in BACKSPACE_KEYS:
                 self.text = self.text[:-1]
             if key in ENTER_KEYS:
-                self.done = True
+                self.on_press(self.text)
         else:
             return self.text
