@@ -9,7 +9,7 @@
             "focused": {
                 "background": "black",
                 "forground": "white"
-            }, "not-focused" {
+            }, "not-focused": {
                 "forground": "black",
                 "background": "white"
             }
@@ -17,21 +17,16 @@
     },
     "text": {
         "colors": {
-            "focused": {
-                "background": "black",
-                "forground": "white"
-            }, "not-focused" : {
-                "background": "white",
-                "forground": "back"
-            }
+            "background": "black",
+            "forground": "white"
         },
         "theme": "None"
     },
     "buttons": {
         "colors": {
             "focused": { "background": "black", "forground": "white"},
-            "not-focused": {"background":"white","forground": "black"},
-        }
+            "not-focused": {"background": "white","forground": "black"}
+        },
         "start": {"focused":">","not-focused":"["},
         "end": {"focused": "<","not-focused":"]"}
     }

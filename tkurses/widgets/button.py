@@ -8,9 +8,25 @@ class Button(Widget):
         self.on_press = on_press
 
     def render(self):
-        color = self.app.theme.get_color("primary" if self.focused else "secondary")
-        display_text = f"[ {self.text} ]"
-        self.app.stdscr.addstr(self.y, self.x, display_text, color)
+        theme = self.app.theme.get_input_theme()
+        color = theme["colors"]
+        if self.focused == True:
+            forground = color["focused"]["forground"]
+            background = color["focused"]["background"]
+        else:
+            forground = color["not-focused"]["forground"]
+            background = color["not-focused"]["background"]
+        # start and end theme
+        if self.focused:
+            startChar = theme["start"]["focused"]
+            endChar = theme["start"]["not-focused"]
+        else:
+            startChar = theme["end"]["focused"]
+            endChar = theme["end"]["not-focused"]
+        
+        # display
+        display_text = f"{startChar}{self.text}{endChar}"
+        self.app.stdscr.addstr(self.y, self.x, display_text, forground)
 
     def handle_input(self, key: int) -> bool:
         if key in (curses.KEY_ENTER, ord('\n')):

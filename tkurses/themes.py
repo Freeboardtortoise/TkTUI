@@ -32,16 +32,17 @@ def convert_colors(config):
         return config
 
 class ThemeManager:
-    def __init__(self, themFile):
+    def __init__(self, themeFile):
         import json
-        with open(themFile,"r") as file:
-            fileContentsfile.read()
-        data = json.load(fileContents)
+        curses.start_color()
+        with open(themeFile,"r") as file:
+            data = json.load(file)
         self.data = data
-        sel.data = convert_colors(self.data)
-    def get_color(self,name :str):
-        return self.data["colors"][name]
+        self.data = convert_colors(self.data)
+        curses.init_pair(1, self.data["colors"]["forground"], self.data["colors"]["background"])
     def get_input_theme(self):
-        return self.data["input"]["style"]
+        return self.data["input"]
     def get_label_theme(self):
-        return self.data["text"]["style"]
+        return self.data["text"]
+    def get_button_theme(self):
+        return self.data["buttons"]

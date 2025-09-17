@@ -15,11 +15,16 @@ class InputBox(Widget):
         self.on_press = on_press
         sef.theme = theme
     def render(self):
-        self.app.theme.get_color(self.theme)
-        if self.app.theme.get_inputTheme
-        rectangle(self.app.stdscr,self.y,self.x,self.y+self.size[1],self.x+self.size[0])
-        self.app.stdscr.addstr(self.y,self.x+2,self.title)
-        self.app.stdscr.addstr(self.y+1,self.x+1,self.text)
+        theme = self.app.theme.get_input_theme()
+        color = theme["colors"]
+        style = theme["style"]
+        if style == "box":
+            rectangle(self.app.stdscr,self.y,self.x,self.y+self.size[1],self.x+self.size[0])
+            self.app.stdscr.addstr(self.y,self.x+2,self.title)
+            self.app.stdscr.addstr(self.y+1,self.x+1,self.text)
+        if style == "pinput":
+            self.app.stdscr.addstr(self.y,self.x+2,self.title+": ",curses.A_UNDERLINE)
+            self.app.stdscr.addstr(self.y,self.x+len(self.title),curses.A_UNDERLINE)
     def handle_input(self,key):
         if self.done == False:
             if key in typeable_chars or chr(key) in typeable_chars:

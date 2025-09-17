@@ -1,7 +1,6 @@
 import curses
 import tkurses.core as core
 import tkurses.widgets as widgits
-from tkurses.themes import DarkTheme
 
 def on_buttonPress(app, buttonWhat):
     app.add_widget(widgits.Label(f"button pressed {buttonWhat}",  10,5))

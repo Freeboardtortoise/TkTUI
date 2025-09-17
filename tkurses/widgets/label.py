@@ -9,5 +9,6 @@ class Label(Widget):
         self.text = text
 
     def render(self):
-        color = self.app.theme.get_color("default")
+        color = self.app.theme.get_label_theme()
+        color = color["colors"]["forground"]
         self.app.stdscr.addstr(self.y, self.x, self.text, color)

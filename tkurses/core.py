@@ -1,18 +1,18 @@
 import curses
 from curses import panel
 from typing import List, Optional
+from tkurses.themes import ThemeManager
 
 class App:
     def __init__(self, stdscr, theme=None):
         self.stdscr = stdscr
-        self.theme = theme or DefaultTheme()
+        self.theme = ThemeManager(theme)
         self.widgets: List["Widget"] = []
         self.focus_index = 0
 
         curses.curs_set(0)  # Hide cursor
         curses.start_color()
         curses.use_default_colors()
-        self.theme.init_colors()
 
         self.running = True
 
