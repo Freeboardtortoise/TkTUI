@@ -19,9 +19,7 @@ class TextBox(Widget):
                           self.size[1]+self.y, self.x+self.size[0])
         row = 1
         for line in self.text.split("\n"):
-            printed = False
             while len(line) >= self.size[0]-1:
-                printed = True
                 newLine = line[:self.size[0]-1]
                 line = line[self.size[0]-1:]
                 self.app.stdscr.addstr(self.y+row, self.x+1, newLine)
@@ -40,3 +38,5 @@ class TextBox(Widget):
                     return self.text
                 else:
                     self.text = self.text + "\n"
+            if key in BACKSPACE_KEYS:
+                self.text = self.text[:-1]
