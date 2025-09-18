@@ -8,7 +8,7 @@ BACKSPACE_KEYS = ['\b', '\x7f', 8, 127, curses.KEY_BACKSPACE]
 
 class TextBox(Widget):
     def __init__(self, pos, size, exitOnEnter=True):
-        super().__init__(pos[0], pos[1])
+        super().__init__(pos[0], pos[1],width=size[0],height=pos[1])
         self.size = size
         self.exitOnEnter = False
         self.text = ""
@@ -17,9 +17,11 @@ class TextBox(Widget):
     def render(self):
         textpad.rectangle(self.app.stdscr, self.y, self.x,
                           self.size[1]+self.y, self.x+self.size[0])
+        if self.done:
+            self.app.stdscr.addstr(self.y,self.x+2,"Closed")
         row = 1
         for line in self.text.split("\n"):
-            while len(line) >= self.size[0]-1:
+            while len(line) >= self.size[0]:
                 newLine = line[:self.size[0]-1]
                 line = line[self.size[0]-1:]
                 self.app.stdscr.addstr(self.y+row, self.x+1, newLine)
@@ -27,6 +29,7 @@ class TextBox(Widget):
             if row >= self.size[1]:
                 self.done = True
             self.app.stdscr.addstr(self.y+row, self.x+1, line)
+            row+=1
 
     def handle_input(self, key):
         if self.done == False:
