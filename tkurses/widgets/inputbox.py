@@ -5,7 +5,7 @@ typeable_chars = [chr(i) for i in range(32, 127)]
 ENTER_KEYS = ['\n', '\r', 10, 13, curses.KEY_ENTER]
 BACKSPACE_KEYS = ['\b', '\x7f', 8, 127, curses.KEY_BACKSPACE]
 
-class InputBox(Widget):
+class Input(Widget):
     def __init__(self, title,pos,size,on_press,password=False):
         super().__init__(pos[0],pos[1])
         self.text=""
@@ -29,9 +29,12 @@ class InputBox(Widget):
                 self.app.stdscr.addstr(self.y+1,self.x+1,self.text,curses.color_pair(color))
             else:
                 self.app.stdscr.addstr(self.y+1,self.x+1,"*" * len(self.text),curses.color_pair(color))
-        if style == "pinput":
+        if style == "default":
             self.app.stdscr.addstr(self.y,self.x+2,self.title+": ",curses.color_pair(color))
-            self.app.stdscr.addstr(self.y,self.x+len(self.title),curses.color_pair(color))
+            if self.show == False:
+                self.app.stdscr.addstr(self.y,self.x+len(self.title)+4,self.text,curses.color_pair(color))
+            else:
+                self.app.stdscr.addstr(self.y,self.x+len(self.title)+4,len(self.text)*"*",curses.color_pair(color))
     def handle_input(self,key):
         if self.done == False:
             if key in typeable_chars or chr(key) in typeable_chars:

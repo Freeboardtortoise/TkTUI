@@ -1,4 +1,4 @@
 from .label import Label
 from .button import Button
 from .frame import Frame
-from .inputbox import InputBox
+from .inputbox import Input

@@ -30,6 +30,8 @@ def convert_colors(config):
         return [convert_colors(item) for item in config]
     else:
         return config
+
+
 def fill_background(stdscr, color_pair_number):
     height, width = stdscr.getmaxyx()
     stdscr.bkgd(' ', curses.color_pair(color_pair_number))  # Set default background property

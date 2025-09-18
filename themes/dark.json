@@ -1,10 +1,10 @@
 {
     "colors": {
-        "background": "blue",
-        "forground": "black"
+        "background": "black",
+        "forground": "white"
     },
     "input": {
-        "style": "box",
+        "style": "default",
         "colors": {
             "focused": {
                 "background": "black",
@@ -20,7 +20,8 @@
             "background": "blue",
             "forground": "black"
         },
-        "theme": "None"
+        "theme": "None",
+        "quitKeys": ["Enter","shift-enter"]
     },
     "buttons": {
         "colors": {
