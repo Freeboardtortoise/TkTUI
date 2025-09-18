@@ -7,9 +7,9 @@ BACKSPACE_KEYS = ['\b', '\x7f', 8, 127, curses.KEY_BACKSPACE]
 
 class Input(Widget):
     def __init__(self, title,pos,size,on_press,password=False):
-        super().__init__(pos[0],pos[1])
+        super().__init__(pos[0],pos[1],size[0],size[1])
         self.text=""
-        self.size = size
+        self.size = [self.width,self.height]
         self.title=title
         self.done = False
         self.on_press = on_press

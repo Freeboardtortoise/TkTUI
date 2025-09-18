@@ -59,6 +59,8 @@ class App:
                 self.running = False
             else:
                 self.handle_input(key)
+                for object in self.widgets:
+                    object.update()
                 self.refresh()
 
     def stop(self):

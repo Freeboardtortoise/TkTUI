@@ -7,7 +7,7 @@ class Widget:
         # set percentagses
         self.px=x
         self.py=y
-        self.hw=width
+        self.pw=width
         self.ph=height
         # set percentage
         self.x = int(x * terminalSize[0] / 100)

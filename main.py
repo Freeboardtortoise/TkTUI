@@ -10,7 +10,9 @@ def on_buttonPress(app, buttonWhat):
 def main(stdscr):
     screen = stdscr
     app = core.App(screen, "themes/dark.json")
-    text = widgits.TextBox((1,1),(90,90),False)
+    text = widgits.TextBox((10,10),(100,9100),False)
+    button = widgits.Input('button',(0,0),(10,10),on_buttonPress)
+    app.add_widget(button)
     app.add_widget(text)
     app.mainloop()
 
