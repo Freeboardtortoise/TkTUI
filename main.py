@@ -12,7 +12,7 @@ def main(stdscr):
     app.add_widget(button1)
     button2 = widgits.Button("press me too", 0, 2, on_press=lambda: on_buttonPress(app, "press Me too button"))
     app.add_widget(button2)
-    input = widgits.InputBox("testing",(1,10),(10,2),on_press=lambda text: app.add_widget(widgits.Label(f"Text entered: {text}",10,7)))
+    input = widgits.InputBox("testing",(1,10),(10,2), on_press=lambda text: app.add_widget(widgits.Label(f"Text entered: {text}",10,7)),password=True)
     app.add_widget(input)
     app.mainloop()
 
