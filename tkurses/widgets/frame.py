@@ -2,7 +2,9 @@ from .base import Widget
 import curses
 
 class Frame(Widget):
-    def __init__(self, x, y, width, height, title=""):
+    def __init__(self,pos, size, title=""):
+        x,y = pos
+        width, height = size
         super().__init__(x, y, width, height)
         self.title = title
         self.children = []

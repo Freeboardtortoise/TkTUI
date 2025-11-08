@@ -2,7 +2,8 @@ from .base import Widget
 import curses
 
 class Button(Widget):
-    def __init__(self, text: str, x: int, y: int, on_press=None):
+    def __init__(self, text: str, pos, on_press=None):
+        x, y = pos
         super().__init__(x, y, width=len(text) + 4, height=1)
         self.text = text
         self.on_press = on_press

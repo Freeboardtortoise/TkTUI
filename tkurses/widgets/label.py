@@ -1,7 +1,7 @@
 from .base import Widget
 
 class Label(Widget):
-    def __init__(self, text: str, x: int, y: int):
+    def __init__(self, text: str, (x, y)):
         super().__init__(x, y)
         self.text = text
 
